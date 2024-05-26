@@ -40,11 +40,7 @@ Run the application on browser using the serve url (usualy: http://127.0.0.1:800
     -Email    => 'yepansh001@gmail.com',
     -Password => 'Pa$$w0rd'
 
-- **User 2: Shyrel Picache**
-    -Email    => 'sheryl@sourceitmarketing.com',
-    -Password => 'Pa$$w0rd'
-
-- **User 3: John Doe**
+- **User 2: John Doe**
     -Email    => 'john@example.com',
     -Password => 'Pa$$w0rd'
 
