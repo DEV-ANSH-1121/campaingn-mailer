@@ -110,6 +110,12 @@
     </div>
 </div>
 
+@php
+$totalSentMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalSentMails'] / $data['totalCampaignMails']) * 100) : 0;
+    $totalOpenedMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalOpenedMails'] / $data['totalCampaignMails']) * 100) : 0;
+    $totalFailedMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalFailedMails'] / $data['totalCampaignMails']) * 100) : 0;
+    $totalScheduledMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalScheduledMails'] / $data['totalCampaignMails']) * 100) : 0;
+@endphp
 
 @endsection
 
@@ -121,10 +127,10 @@
     function drawChart() {
         const data = google.visualization.arrayToDataTable([
         ['Contry', 'Mhl'],
-        ['Total Scheduled Mails', {{ (($data['totalScheduledMails'] / $data['totalCampaignMails']) * 100) }}],
-        ['Total Sent Mails', {{ (($data['totalSentMails'] / $data['totalCampaignMails']) * 100) }}],
-        ['Total Opened Mails', {{ (($data['totalOpenedMails'] / $data['totalCampaignMails']) * 100) }}],
-        ['Total Failed Mails', {{ (($data['totalFailedMails'] / $data['totalCampaignMails']) * 100) }}],
+        ['Total Scheduled Mails', {{ $totalScheduledMailsPercentage }}],
+        ['Total Sent Mails', {{ $totalSentMailsPercentage }}],
+        ['Total Opened Mails', {{ $totalOpenedMailsPercentage }}],
+        ['Total Failed Mails', {{ $totalFailedMailsPercentage }}],
     ]);
 
     const options = {

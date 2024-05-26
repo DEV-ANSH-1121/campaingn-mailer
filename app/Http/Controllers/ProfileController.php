@@ -68,6 +68,7 @@ class ProfileController extends Controller
         $data['totalOpenedMails'] = MailLog::filter()->whereStatus(2)->count();
         $data['totalFailedMails'] = MailLog::filter()->whereStatus(3)->count();
         $data['totalScheduledMails'] = MailLog::filter()->whereStatus(4)->count();
+
         return view('dashboard', compact('data'));
     }
 }
