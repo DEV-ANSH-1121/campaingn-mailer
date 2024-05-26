@@ -93,6 +93,7 @@
                             </div>
                         </div>
                     </div>
+                    @if($data['totalCampaignMails'] != 0)
                     <div class="col-12 mb-3">
                         <div class="card">
                             <div class="card-header">
@@ -104,6 +105,7 @@
 
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -111,7 +113,7 @@
 </div>
 
 @php
-$totalSentMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalSentMails'] / $data['totalCampaignMails']) * 100) : 0;
+    $totalSentMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalSentMails'] / $data['totalCampaignMails']) * 100) : 0;
     $totalOpenedMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalOpenedMails'] / $data['totalCampaignMails']) * 100) : 0;
     $totalFailedMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalFailedMails'] / $data['totalCampaignMails']) * 100) : 0;
     $totalScheduledMailsPercentage = ($data['totalCampaignMails'] != 0) ? (($data['totalScheduledMails'] / $data['totalCampaignMails']) * 100) : 0;
