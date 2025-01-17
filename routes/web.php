@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Module\MailCampaignController;
 use App\Http\Controllers\Module\MailLogController;
 use App\Http\Controllers\Module\MailTemplateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Module\UserController;
+use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,27 +20,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect('/dashboard');
-    }else{
-        return redirect('/login');
-    }
-});
+// Route::get('/', function () {
+//     if (auth()->check()) {
+//         return redirect('/dashboard');
+//     }else{
+//         return redirect('/login');
+//     }
+// });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('users', UserController::class);
-    Route::resource('mailTemplates', MailTemplateController::class);
-    Route::resource('mailCampaigns', MailCampaignController::class);
-    Route::resource('/mailLogs', MailLogController::class);
-});
+//     Route::resource('users', UserController::class);
+//     Route::resource('mailTemplates', MailTemplateController::class);
+//     Route::resource('mailCampaigns', MailCampaignController::class);
+//     Route::resource('/mailLogs', MailLogController::class);
+// });
 
-Route::get('mark-mail-read', [MailCampaignController::class, 'markMailRead'])->name('markMailRead');
+// Route::get('mark-mail-read', [MailCampaignController::class, 'markMailRead'])->name('markMailRead');
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
+
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/user', [HomeController::class, 'user']);
+Route::get('/template', [HomeController::class, 'template']);
+Route::get('/campaign', [HomeController::class, 'campaign']);
+Route::get('/mail-log', [HomeController::class, 'mailLog']);
+
+Route::get('/resume/pdf', [ResumeController::class, 'generatePdf']);
