@@ -86,6 +86,17 @@
         </div>
 
         <div class="section">
+            <h2>Work Experience</h2>
+            <ul>
+                <li><span class="highlight">Aadhar Supervisor</span> - RDD Bihar (5 years)</li>
+                <p>Managed Aadhaar enrollment and verification processes, ensuring compliance with UIDAI guidelines. Supervised a team, resolved technical issues, and facilitated smooth operations at enrollment centers.</p>
+
+                <li><span class="highlight">Computer Operator</span> - Jharkhand Skill Development Mission (1 year)</li>
+                <p>Coordinated training programs, mobilized candidates for skill development courses, monitored project implementation, and maintained communication between various stakeholders to ensure the success of mission objectives.</p>
+            </ul>
+        </div>
+
+        <div class="section">
             <h2>Certifications</h2>
             <p>Advanced Diploma in Computer Applications (ADCA) - Completed a 1-year professional diploma covering MS Office Suite, Internet Applications, and Basic Programming.</p>
         </div>

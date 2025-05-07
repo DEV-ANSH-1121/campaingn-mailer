@@ -10,13 +10,15 @@ class ResumeController extends Controller
 {
     public function generatePdf(Request $request)
     {
-        return view('rahul-resume');
-        $view = 'nikku-resume';
+        // return view('ansh-resume');
+        // return view('rahul-resume');
+        // return view('nikku-resume');
+        $view = 'rahul-resume';
         if ($request->has('resume')) {
             $view = $request->resume;
         }
 
         $pdf = Pdf::loadView($view); // Load the Blade view
-        return $pdf->download('Sumit_Kumar_Resume.pdf'); // Download as PDF
+        return $pdf->download($view . '.pdf'); // Download as PDF
     }
 }
