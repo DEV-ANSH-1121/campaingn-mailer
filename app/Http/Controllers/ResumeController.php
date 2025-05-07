@@ -10,7 +10,7 @@ class ResumeController extends Controller
 {
     public function generatePdf(Request $request)
     {
-        $view = $request->get('resume', 'ansh-resume');
+        $view = 'resume.' . $request->get('resume', 'ansh-resume');
         $pdf = Pdf::loadView($view); // Load the Blade view
         return $pdf->download($view . '.pdf'); // Download as PDF
     }
